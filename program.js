@@ -1,16 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 
-var module = require('./module.js');
+var module = require('./mymodule');
 var dir = process.argv[2];
-var ext = "txt";
+var ext = process.argv[3];
 
-
-module(ext, dir, function(err, listArr){
+module(dir, ext, function(err, data){
     if(err) {
         console.log(err);
     } else {
-        listArr.forEach(item => console.log(item));
+        // arrList.forEach(item=>console.log(item));
+        for( var i=0; i<data.length; i++ ){
+      console.log(data[i]);
+    }
     }
  
 });
+
